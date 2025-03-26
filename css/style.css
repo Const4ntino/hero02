@@ -302,3 +302,12 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+
+/* MEDIA QUERYS */
+
+@media (min-width: 1000px) {
+    .hero_contenido {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+    }
+}
