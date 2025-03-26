@@ -60,7 +60,7 @@ h1 {
     padding: 2rem;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -71,8 +71,7 @@ h1 {
 /* NAVBAR */
 
 .header_nav ul {
-    display: flex;
-    gap: 2.5rem;
+    display: none;
 }
 
 .header_nav ul a {
@@ -87,24 +86,20 @@ h1 {
 /* HERO-CONTENIDO */
 
 .hero_contenido {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1;
+    padding: 2rem 0 4.3rem;
 }
 
 .hero_contenido img {
-    margin-top: 19rem;
-    height: 32rem;
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-
-    flex: 1;
+    display: none;
 }
 
 /* HERO-CONTENDIO: TEXTO */
 
 .hero_texto {
-    flex: 1.3;
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,12 +108,10 @@ h1 {
 
 .hero_informacion-top {
     text-transform: uppercase;
-    text-align: right;
     letter-spacing: 0.1rem;
 }
 
 .hero_titulo {
-    text-align: right;
     font-size: 3.6rem;
     font-weight: 400;
     line-height: 1.44;
@@ -131,8 +124,8 @@ h1 {
 }
 
 .hero_informacion-bottom {
-    text-align: right;
-    margin-left: 20%;
+    width: 70%;
+    margin: 0 auto;
     line-height: 1.8;
 }
 
@@ -144,7 +137,7 @@ h1 {
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
 }
 
 .hero_boton_a {
@@ -156,7 +149,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: right 1rem center;
 
-    /* APARIENCIA */
+    /* => APARIENCIA */
     border-radius: .8rem;
     border: .1rem solid var(--blanco);
     padding: 1rem 4rem 1rem 1rem;
@@ -220,7 +213,7 @@ h1 {
 
     padding: 3rem 2rem 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1.5fr;
     row-gap: 4rem;
 }
 
@@ -261,27 +254,15 @@ h1 {
     height: 3rem;
 }
 
-.footer_enlaces ul {
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer_enlaces a {
-    text-decoration: none;
-    color: var(--blanco);
-}
-
-.footer_enlaces a:hover {
-    color: var(--colorSecundario);
+.footer_enlaces {
+    display: none;
 }
 
 .footer_informacion-bottom {
     text-align: center;
-    grid-column: 1 / 4;
+    grid-column: 1/3;
+    ;
 }
-
-
 
 /* UTILIDADES */
 
@@ -305,9 +286,92 @@ h1 {
 
 /* MEDIA QUERYS */
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
     .hero_contenido {
-        display: grid;
-        grid-template-columns: 1fr 1.3fr;
+        grid-template-columns: 1fr 1.8fr;
+        padding: 0;
+    }
+
+    .hero_contenido img {
+        display: block;
+        margin-top: 19rem;
+        height: 25rem;
+        width: 100%;
+        object-fit: contain;
+        object-position: top;
+    }
+
+    .hero_texto {
+        text-align: right;
+    }
+
+    .hero_informacion-bottom {
+        width: auto;
+        margin-left: 20%;
+    }
+
+    .hero_botones {
+        align-items: end;
+    }
+
+    /* FOOTER */
+
+    .footer_enlaces {
+        display: block;
+    }
+
+    .footer_enlaces ul {
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer_enlaces a {
+        text-decoration: none;
+        color: var(--blanco);
+    }
+
+    .footer_enlaces a:hover {
+        color: var(--colorSecundario);
+    }
+
+    .footer_contenido {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 4rem;
+    }
+
+    .footer_informacion-bottom {
+        grid-column: 1 / 4;
+    }
+}
+
+@media (min-width: 1065px) {
+    .hero_contenido {
+        grid-template-columns: 1fr 1.2fr;
+        padding: 0;
+    }
+
+    .hero_contenido img {
+        margin-top: 19rem;
+        height: 32rem;
+    }
+
+    /* HEADER */
+
+    .header {
+        padding: 2rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header .logo {
+        height: 7rem;
+    }
+
+    .header_nav ul {
+        display: flex;
+        gap: 2.5rem;
     }
 }
