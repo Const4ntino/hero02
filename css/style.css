@@ -60,7 +60,7 @@ h1 {
     padding: 2rem;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -68,9 +68,72 @@ h1 {
     height: 7rem;
 }
 
-/* NAVBAR */
+/* HEADER-MENU */
 
-.header_nav ul {
+.header_menu-button {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+}
+
+.header_menu-button input {
+    display: none;
+}
+
+.header_menu-button span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: var(--blanco);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.header_menu-button span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+.header_menu-button span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+}
+
+.header_menu-button span:nth-of-type(3) {
+    top: 100%;
+    transform: translateY(-100%);
+    transform-origin: left center;
+}
+
+.header_menu-button input:checked~span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+}
+
+.header_menu-button input:checked~span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.header_menu-button input:checked~span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+}
+
+
+/* HEADER-NAVBAR */
+
+.header_nav {
     display: none;
 }
 
@@ -214,6 +277,7 @@ h1 {
     padding: 3rem 2rem 2rem;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
+    column-gap: 2rem;
     row-gap: 4rem;
 }
 
@@ -287,6 +351,18 @@ h1 {
 /* MEDIA QUERYS */
 
 @media (min-width: 900px) {
+
+    /* HEADER */
+    .header_menu-button {
+        display: none;
+    }
+
+    .header_nav {
+        display: block;
+    }
+
+    /* HERO-CONTENIDO */
+
     .hero_contenido {
         grid-template-columns: 1fr 1.8fr;
         padding: 0;
@@ -346,16 +422,6 @@ h1 {
 }
 
 @media (min-width: 1065px) {
-    .hero_contenido {
-        grid-template-columns: 1fr 1.2fr;
-        padding: 0;
-    }
-
-    .hero_contenido img {
-        margin-top: 19rem;
-        height: 32rem;
-    }
-
     /* HEADER */
 
     .header {
@@ -374,4 +440,18 @@ h1 {
         display: flex;
         gap: 2.5rem;
     }
+
+    /* HERO-CONTENIDO */
+
+    .hero_contenido {
+        grid-template-columns: 1fr 1.2fr;
+        padding: 0;
+    }
+
+    .hero_contenido img {
+        margin-top: 19rem;
+        height: 32rem;
+    }
+
+
 }
